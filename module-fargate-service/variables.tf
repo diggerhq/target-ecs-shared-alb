@@ -10,7 +10,7 @@ variable "image_tag_mutability" {
   description = "The tag mutability setting for the repository (defaults to IMMUTABLE)"
 }
 
-variable "service_vpc" {}
+variable "vpc_id" {}
 
 variable "service_security_groups" {
   default = []

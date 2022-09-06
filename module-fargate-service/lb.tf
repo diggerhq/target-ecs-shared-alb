@@ -12,7 +12,7 @@ resource "aws_alb_target_group" "main" {
   name                 = var.service_name
   port                 = var.lb_port
   protocol             = var.lb_protocol
-  vpc_id               = var.service_vpc.id
+  vpc_id               = var.vpc_id
   target_type          = "ip"
   deregistration_delay = var.deregistration_delay
 

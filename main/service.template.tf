@@ -14,7 +14,7 @@ module "fargate-service" {
   ecs_cluster = aws_ecs_cluster.app
   service_name = "{{aws_app_identifier}}"
   region = var.region
-  service_vpc = local.vpc_id
+  vpc_id = local.vpc_id
   service_security_groups = [aws_security_group.ecs_service_sg.id]
   subnet_ids = var.public_subnets
   alb_arn = "{{ environment_config.alb_arn }}"
