@@ -79,8 +79,8 @@ module "fargate-service" {
     type    = "A"
 
     alias {
-      name                   = module.service-{{aws_app_identifier}}.lb_dns
-      zone_id                = module.service-{{aws_app_identifier}}.lb_zone_id
+      name                   = module.fargate-service.lb_dns
+      zone_id                = module.fargate-service.lb_zone_id
       evaluate_target_health = false
     }
   }
@@ -99,8 +99,8 @@ module "fargate-service" {
     type    = "A"
 
     alias {
-      name                   = module.service-{{aws_app_identifier}}.lb_dns
-      zone_id                = module.service-{{aws_app_identifier}}.lb_zone_id
+      name                   = module.fargate-service.lb_dns
+      zone_id                = module.fargate-service.lb_zone_id
       evaluate_target_health = false
     }
   }
@@ -111,15 +111,15 @@ output "{{aws_app_identifier}}_dggr_domain" {
 {% endif %}
 
 output "{{aws_app_identifier}}_docker_registry" {
-  value = module.service-{{aws_app_identifier}}.docker_registry
+  value = module.fargate-service.docker_registry
 }
 
 output "{{aws_app_identifier}}_lb_dns" {
-  value = module.service-{{aws_app_identifier}}.lb_dns
+  value = module.fargate-service.lb_dns
 }
 
 output "{{aws_app_identifier}}_lb_arn" {
-  value = module.service-{{aws_app_identifier}}.lb_arn
+  value = module.fargate-service.lb_arn
 }
 
 output "{{aws_app_identifier}}" {
