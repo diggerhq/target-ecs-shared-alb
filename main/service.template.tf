@@ -18,7 +18,7 @@ module "fargate-service" {
   service_security_groups = [aws_security_group.ecs_service_sg.id]
   subnet_ids = var.public_subnets
   alb_arn = "{{ environment_config.alb_arn }}"
-  listener_rule_path = "{{ environment_config.listener_rule_path }}"
+  listener_rule_path_pattern = "{{ environment_config.listener_rule_path_pattern }}"
   listener_arn = "{{ environment_config.listener_arn }}"
 
   {%- if internal is defined %}
