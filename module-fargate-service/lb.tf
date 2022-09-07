@@ -10,7 +10,7 @@ data aws_alb "main" {
 
 resource "aws_alb_target_group" "main" {
   name                 = var.service_name
-  port                 = var.lb_port
+  port                 = var.container_port
   protocol             = var.lb_protocol
   vpc_id               = var.vpc_id
   target_type          = "ip"
