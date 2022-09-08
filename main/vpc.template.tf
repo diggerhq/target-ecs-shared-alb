@@ -13,5 +13,5 @@ output "vpc_id" {
 }
 
 output "security_group_ids" {
-  value = [aws_security_group.ecs_sg.id]
+  value = concat([module.fargate-service.security_group_id], var.security_groups)
 }
