@@ -105,7 +105,7 @@ resource "aws_ecs_service" "app" {
   network_configuration {
     security_groups  = concat([aws_security_group.ecs_sg.id], var.security_groups)
     subnets          = var.subnet_ids
-    assign_public_ip = false
+    assign_public_ip = true
     # subnets         = split(",", var.private_subnets)
   }
 
