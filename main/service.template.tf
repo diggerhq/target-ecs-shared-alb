@@ -15,7 +15,7 @@ module "fargate-service" {
   service_name = "{{aws_app_identifier}}"
   region = var.region
   vpc_id = local.vpc_id
-  service_security_groups = [aws_security_group.ecs_sg.id]
+  security_groups = var.security_groups
   subnet_ids = var.public_subnets
   alb_arn = "{{ environment_config.alb_arn }}"
   listener_rule_path_pattern = "{{ environment_config.listener_rule_path_pattern }}"

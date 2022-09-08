@@ -12,7 +12,7 @@ variable "image_tag_mutability" {
 
 variable "vpc_id" {}
 
-variable "service_security_groups" {
+variable "security_groups" {
   default = []
 }
 

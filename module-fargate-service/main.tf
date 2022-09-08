@@ -103,7 +103,7 @@ resource "aws_ecs_service" "app" {
   health_check_grace_period_seconds = var.health_check_grace_period_seconds
 
   network_configuration {
-    security_groups  = concat([aws_security_group.ecs_sg.id], var.service_security_groups)
+    security_groups  = concat([aws_security_group.ecs_sg.id], var.security_groups)
     subnets          = var.subnet_ids
     assign_public_ip = true
     # subnets         = split(",", var.private_subnets)
