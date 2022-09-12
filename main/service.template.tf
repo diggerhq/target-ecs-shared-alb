@@ -16,7 +16,7 @@ module "fargate-service" {
   region = var.region
   vpc_id = local.vpc_id
   security_groups = var.security_groups
-  subnet_ids = var.public_subnets
+  subnet_ids = var.private_subnets
   alb_arn = "{{ environment_config.alb_arn }}"
   listener_rule_path_pattern = "{{ environment_config.listener_rule_path_pattern }}"
   listener_arn = "{{ environment_config.listener_arn }}"
