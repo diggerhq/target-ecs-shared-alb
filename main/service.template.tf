@@ -90,11 +90,6 @@ module "fargate-service" {
   }
 {% endif %}
 
-output "{{aws_app_identifier}}_dggr_domain" {
-  value = aws_route53_record.{{aws_app_identifier}}_dggr_r53.fqdn
-}
-{% endif %}
-
 output "{{aws_app_identifier}}_docker_registry" {
   value = module.fargate-service.docker_registry
 }
