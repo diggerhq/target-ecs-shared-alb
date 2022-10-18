@@ -19,14 +19,6 @@ module "fargate-service" {
   subnet_ids = var.private_subnets
   alb_arn = "{{ environment_config.alb_arn }}"
 
-{{listener_rule_http_header_value}}
-
-
-
-        asdasd
-
-
-
   {{ 'listener_rule_path_pattern=['+listener_rule_path_pattern + ']' if listener_rule_path_pattern is defined else '' }}
   {{ 'listener_rule_http_header_value=['+listener_rule_http_header_value + ']'  if listener_rule_http_header_value is defined else '' }}
 
