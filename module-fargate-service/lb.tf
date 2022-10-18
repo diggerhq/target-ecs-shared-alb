@@ -4,7 +4,7 @@
 # but you need at least one
 
 
-data aws_alb "main" {
+data "aws_alb" "main" {
   arn = var.alb_arn
 }
 
@@ -47,8 +47,19 @@ resource "aws_lb_listener_rule" "listener_rule" {
   }
 
   condition {
-    path_pattern {
-      values = [var.listener_rule_path_pattern]
+    dynamic "path_pattern" {
+      for_each = var.listener_rule_path_pattern
+      content {
+        values = [path_pattern.value]
+      }
+    }
+
+    dynamic "http_header" {
+      for_each = var.listener_rule_http_header_value
+      content {
+        http_header_name = "alb_route"
+        values           = [http_header.value]
+      }
     }
   }
 }

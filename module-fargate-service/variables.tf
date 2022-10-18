@@ -150,6 +150,12 @@ variable "logs_retention_in_days" {
 
 variable "alb_arn" { }
 
-variable "listener_rule_path_pattern" {}
+variable "listener_rule_path_pattern" {
+  default = []
+}
+
+variable "listener_rule_http_header_value" {
+  default = []
+}
 
 variable "listener_arn" {}
